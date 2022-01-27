@@ -7,9 +7,11 @@ import br.com.valdir.usuarioservice.services.UsuarioService;
 import br.com.valdir.usuarioservice.services.exception.ObjectNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.lang.String.format;
 
@@ -36,6 +38,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario create(UsuarioDTO objDTO) {
         objDTO.setId(null);
+        verifyIfEmailAndCpfOuCnpjAlreadyExists(objDTO);
         return repository.save(mapper.map(objDTO, Usuario.class));
     }
 
@@ -43,4 +46,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario update(UsuarioDTO objDTO, Long id) {
         return null;
     }
+
+    public void verifyIfEmailAndCpfOuCnpjAlreadyExists(UsuarioDTO dto) {
+        Optional<Usuario> obj = repository.findByCpfOuCnpj(dto.getCpfOuCnpj());
+        if (obj.isPresent() && !obj.get().getId().equals(dto.getId())) {
+            throw new DataIntegrityViolationException("CPF já cadastrado no sistema!");
+        }
+
+        obj = repository.findByEmail(dto.getEmail());
+        if (obj.isPresent() && !obj.get().getId().equals(dto.getId())) {
+            throw new DataIntegrityViolationException("E-mail já cadastrado no sistema!");
+        }
+    }
+
 }

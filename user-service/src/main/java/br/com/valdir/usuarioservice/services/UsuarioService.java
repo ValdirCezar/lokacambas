@@ -8,7 +8,7 @@ import java.util.List;
 public interface UsuarioService {
 
     Usuario find(Long id);
-    List<Usuario> findAll(Long id);
+    List<Usuario> findAll();
     Usuario create(UsuarioDTO objDTO);
     Usuario update(UsuarioDTO objDTO, Long id);
 }

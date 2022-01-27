@@ -1,4 +1,4 @@
-package br.com.valdir.userservice.models;
+package br.com.valdir.usuarioservice.models;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
-package br.com.valdir.userservice.repositories;
+package br.com.valdir.usuarioservice.repositories;
 
-import br.com.valdir.userservice.models.Usuario;
+import br.com.valdir.usuarioservice.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

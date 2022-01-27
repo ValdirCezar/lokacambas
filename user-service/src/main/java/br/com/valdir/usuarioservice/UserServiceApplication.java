@@ -1,4 +1,4 @@
-package br.com.valdir.userservice;
+package br.com.valdir.usuarioservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

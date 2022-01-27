@@ -1,4 +1,4 @@
-package br.com.valdir.userservice.configuration;
+package br.com.valdir.usuarioservice.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package br.com.valdir.userservice.models.dtos;
+package br.com.valdir.usuarioservice.models.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

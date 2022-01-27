@@ -24,5 +24,4 @@ public class Usuario {
     private String cpfOuCnpj;
     private String email;
     private String senha;
-
 }

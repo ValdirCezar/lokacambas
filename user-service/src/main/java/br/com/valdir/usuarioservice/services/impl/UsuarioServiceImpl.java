@@ -6,6 +6,7 @@ import br.com.valdir.usuarioservice.repositories.UsuarioRepository;
 import br.com.valdir.usuarioservice.services.UsuarioService;
 import br.com.valdir.usuarioservice.services.exception.ObjectNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import static java.lang.String.format;
 public class UsuarioServiceImpl implements UsuarioService {
 
     private final UsuarioRepository repository;
+    private final ModelMapper mapper;
 
     @Override
     public Usuario find(Long id) {
@@ -33,7 +35,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario create(UsuarioDTO objDTO) {
-        return null;
+        objDTO.setId(null);
+        return repository.save(mapper.map(objDTO, Usuario.class));
     }
 
     @Override

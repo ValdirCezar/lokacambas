@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/usuarios")
@@ -33,7 +35,10 @@ public class UsuarioResourceImpl implements UsuarioResource {
 
     @Override
     public ResponseEntity<UsuarioDTO> create(UsuarioDTO objDTO) {
-        return null;
+        objDTO = mapper.map(service.create(objDTO), UsuarioDTO.class);
+        return ResponseEntity
+                .created(fromCurrentRequest().path("/{id}").buildAndExpand(objDTO.getId()).toUri())
+                .build();
     }
 
     @Override

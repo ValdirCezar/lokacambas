@@ -1,10 +1,10 @@
-package br.com.valdir.userservice;
+package br.com.valdir.usuarioservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserServiceApplicationTests {
+class UsuarioServiceApplicationTests {
 
     @Test
     void contextLoads() {

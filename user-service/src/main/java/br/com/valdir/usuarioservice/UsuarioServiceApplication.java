@@ -1,13 +1,13 @@
-package br.com.valdir.userservice;
+package br.com.valdir.usuarioservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserServiceApplication {
+public class UsuarioServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
+        SpringApplication.run(UsuarioServiceApplication.class, args);
     }
 
 }

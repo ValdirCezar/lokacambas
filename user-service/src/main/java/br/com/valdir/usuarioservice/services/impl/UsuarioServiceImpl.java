@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -17,7 +18,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario find(Long id) {
-        return null;
+        Optional<Usuario> obj = repository.findById(id);
+        return obj.orElse(null);
     }
 
     @Override

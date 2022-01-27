@@ -19,5 +19,5 @@ public interface UsuarioResource {
     ResponseEntity<UsuarioDTO> create(@Valid @RequestBody UsuarioDTO objDTO);
 
     @PutMapping(value = "/{id}")
-    ResponseEntity<UsuarioDTO> create(@PathVariable Long id, @Valid @RequestBody UsuarioDTO objDTO);
+    ResponseEntity<UsuarioDTO> update(@PathVariable Long id, @Valid @RequestBody UsuarioDTO objDTO);
 }

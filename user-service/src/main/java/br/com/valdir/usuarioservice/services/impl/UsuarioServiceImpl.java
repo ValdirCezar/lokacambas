@@ -11,6 +11,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static java.lang.String.format;
@@ -44,17 +45,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario update(UsuarioDTO objDTO, Long id) {
-        return null;
+        objDTO.setId(id);
+        verifyIfEmailAndCpfOuCnpjAlreadyExists(objDTO);
+        return repository.save(mapper.map(objDTO, find(id).getClass()));
     }
 
     public void verifyIfEmailAndCpfOuCnpjAlreadyExists(UsuarioDTO dto) {
         Optional<Usuario> obj = repository.findByCpfOuCnpj(dto.getCpfOuCnpj());
-        if (obj.isPresent() && !obj.get().getId().equals(dto.getId())) {
+        if (obj.isPresent() && !Objects.equals(dto.getId(), obj.get().getId())) {
             throw new DataIntegrityViolationException("CPF já cadastrado no sistema!");
         }
 
         obj = repository.findByEmail(dto.getEmail());
-        if (obj.isPresent() && !obj.get().getId().equals(dto.getId())) {
+        if (obj.isPresent() && !Objects.equals(dto.getId(), obj.get().getId())) {
             throw new DataIntegrityViolationException("E-mail já cadastrado no sistema!");
         }
     }

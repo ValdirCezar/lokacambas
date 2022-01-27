@@ -42,7 +42,10 @@ public class UsuarioResourceImpl implements UsuarioResource {
     }
 
     @Override
-    public ResponseEntity<UsuarioDTO> create(Long id, UsuarioDTO objDTO) {
-        return null;
+    public ResponseEntity<UsuarioDTO> update(Long id, UsuarioDTO objDTO) {
+        return ResponseEntity.ok().body(
+                mapper.map(service.update(objDTO, id), UsuarioDTO.class)
+        );
     }
+
 }

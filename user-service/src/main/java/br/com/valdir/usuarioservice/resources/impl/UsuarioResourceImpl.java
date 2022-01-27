@@ -17,7 +17,7 @@ import java.util.List;
 public class UsuarioResourceImpl implements UsuarioResource {
 
     private final UsuarioService service;
-    private ModelMapper mapper;
+    private final ModelMapper mapper;
 
     @Override
     public ResponseEntity<UsuarioDTO> find(Long id) {

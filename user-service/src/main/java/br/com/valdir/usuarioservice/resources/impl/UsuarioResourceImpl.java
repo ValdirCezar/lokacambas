@@ -26,7 +26,9 @@ public class UsuarioResourceImpl implements UsuarioResource {
 
     @Override
     public ResponseEntity<List<UsuarioDTO>> findAll() {
-        return null;
+        return ResponseEntity.ok().body(
+                service.findAll().stream().map(obj -> mapper.map(obj, UsuarioDTO.class)).toList()
+        );
     }
 
     @Override

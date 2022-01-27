@@ -20,16 +20,15 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario find(Long id) {
-        var obj = repository.findById(id);
-        return obj.orElseThrow(
+        return repository.findById(id).orElseThrow(
                 () -> new ObjectNotFoundException(
                         format("Objeto nao encontrado. ID: %d, Tipo: %s", id, Usuario.class.getSimpleName()))
         );
     }
 
     @Override
-    public List<Usuario> findAll(Long id) {
-        return null;
+    public List<Usuario> findAll() {
+        return repository.findAll();
     }
 
     @Override

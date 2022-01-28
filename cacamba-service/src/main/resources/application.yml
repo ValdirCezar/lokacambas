@@ -2,6 +2,6 @@ spring:
   profiles:
     active: local
   application:
-    name: user-service
+    name: cacamba-service
 server:
   port: ${PORT:8100}

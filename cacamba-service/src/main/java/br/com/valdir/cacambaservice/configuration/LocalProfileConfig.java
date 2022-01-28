@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Profile;
 
 import java.util.List;
 
+import static br.com.valdir.cacambaservice.models.enums.TamanhoEnum.GRANDE;
+
 @RequiredArgsConstructor
 @Configuration
 @Profile("local")
@@ -19,7 +21,11 @@ public class LocalProfileConfig {
     @Bean
     public void startDB() {
         repository.saveAll(List.of(
-                new Cacamba(null, "Cacamba vermelha", 150.50, true)
+                new Cacamba(
+                        null,
+                        "Cacamba vermelha",
+                        150.50, true,
+                        GRANDE)
         ));
     }
 

@@ -1,12 +1,12 @@
 package br.com.valdir.cacambaservice.models.dtos;
 
+import br.com.valdir.cacambaservice.models.enums.TamanhoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -24,4 +24,5 @@ public class CacambaDTO implements Serializable {
     private String descricao;
     private Double preco;
     private Boolean disponivel;
+    private TamanhoEnum tamanho;
 }

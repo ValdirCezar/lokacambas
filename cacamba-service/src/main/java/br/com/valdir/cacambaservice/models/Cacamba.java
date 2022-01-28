@@ -1,5 +1,6 @@
 package br.com.valdir.cacambaservice.models;
 
+import br.com.valdir.cacambaservice.models.enums.TamanhoEnum;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -23,4 +24,5 @@ public class Cacamba {
     private String descricao;
     private Double preco;
     private Boolean disponivel;
+    private TamanhoEnum tamanho;
 }

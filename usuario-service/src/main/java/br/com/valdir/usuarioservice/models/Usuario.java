@@ -1,5 +1,6 @@
 package br.com.valdir.usuarioservice.models;
 
+import br.com.valdir.usuarioservice.models.enums.PerfilEnum;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -29,4 +30,5 @@ public class Usuario {
     @Column(unique = true)
     private String email;
     private String senha;
+    private PerfilEnum perfil;
 }

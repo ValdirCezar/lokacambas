@@ -2,6 +2,6 @@ spring:
   profiles:
     active: local
   application:
-    name: usuario-service
+    name: locacao-service
 server:
-  port: ${PORT:8000}
+  port: ${PORT:8200}

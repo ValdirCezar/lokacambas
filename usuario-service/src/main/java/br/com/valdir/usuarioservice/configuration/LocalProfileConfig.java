@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Profile;
 
 import java.util.List;
 
+import static br.com.valdir.usuarioservice.models.enums.PerfilEnum.ADMIN;
+
 @RequiredArgsConstructor
 @Configuration
 @Profile("local")
@@ -19,7 +21,13 @@ public class LocalProfileConfig {
     @Bean
     public void startDB() {
         repository.saveAll(List.of(
-                new Usuario(null, "Valdir Cezar", "39338690059", "valdir@mail.com", "123")
+                new Usuario(
+                        null,
+                        "Valdir Cezar",
+                        "39338690059",
+                        "valdir@mail.com",
+                        "123",
+                        ADMIN)
         ));
     }
 }

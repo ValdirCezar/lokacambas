@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "13ee459c-9693-43cf-9023-d698ecc6f3b1"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "front": {
+    "lokacambas": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -26,9 +29,6 @@
         "@schematics/angular:pipe": {
           "skipTests": true
         },
-        "@schematics/angular:resolver": {
-          "skipTests": true
-        },
         "@schematics/angular:service": {
           "skipTests": true
         },
@@ -43,7 +43,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/front",
+            "outputPath": "dist/lokacambas",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -94,10 +94,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "front:build:production"
+              "browserTarget": "lokacambas:build:production"
             },
             "development": {
-              "browserTarget": "front:build:development"
+              "browserTarget": "lokacambas:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -105,11 +105,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "front:build"
+            "browserTarget": "lokacambas:build"
           }
         }
       }
     }
   },
-  "defaultProject": "front"
+  "defaultProject": "lokacambas"
 }

@@ -1,5 +1,6 @@
 package br.com.valdir.usuarioservice.models.dtos;
 
+import br.com.valdir.usuarioservice.models.enums.PerfilEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,4 +35,6 @@ public class UsuarioDTO implements Serializable {
 
     @NotEmpty(message = "O campo SENHA deve ser informado")
     private String senha;
+
+    private PerfilEnum perfil = PerfilEnum.CLIENTE;
 }
